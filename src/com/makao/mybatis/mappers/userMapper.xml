@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    <!--这块等于dao接口的实现  namespace必须和接口的类路径一样-->  
+<mapper namespace="com.makao.model.User">  
+    <select id="countAll" resultType="int">
+        select count(*) c from t_weibouser;
+    </select>
+    
+    <select id="selectAll" resultType="User">
+        select * from t_weibouser order by id asc
+    </select>
+
+    <insert id="insert" parameterType="User">
+        insert into t_weibouser(id,screen_name,province,city,location,description,profile_image_url,profile_url,gender,
+        followers_count,friends_count,statuses_count,created_at,verified,verified_type,verified_reason,birthday,email,qq,real_name)
+         values(#{id},#{screen_name},#{province},#{city},#{location},#{description},#{profile_image_url},#{profile_url},#{gender},
+        #{followers_count},#{friends_count},#{statuses_count},#{created_at},#{verified},#{verified_type},#{verified_reason},#{birthday},#{email},#{qq},#{real_name})
+    </insert>
+    
+    <update id="update" parameterType="User">
+        update t_weibouser set id=#{id},screen_name=#{screen_name},province=#{province},city=#{city},location=#{location},description=#{description},profile_image_url=#{profile_image_url},
+        profile_url=#{profile_url},gender=#{gender},followers_count=#{followers_count},friends_count=#{friends_count},statuses_count=#{statuses_count},
+        created_at=#{created_at},verified=#{verified},verified_type=#{verified_type},verified_reason=#{verified_reason},birthday=#{birthday},email=#{email},
+        qq=#{qq},real_name=#{real_name} where userName=#{userName}
+    </update>
+    
+    <delete id="delete" parameterType="String">
+        delete from t_weibouser where userName=#{userName}
+    </delete>
+    
+    <select id="findByUserName" parameterType="String" resultType="User">
+        select * from t_weibouser where userName=#{userName}
+    </select>
+
+</mapper>

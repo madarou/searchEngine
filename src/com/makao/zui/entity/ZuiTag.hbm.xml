@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="zuitag" name="com.makao.zui.entity.ZuiTag">
+    <id name="id">
+      <generator class="native"/>
+    </id>
+    <property name="level"/>
+    <property name="names"/>
+    <set name="topics" table="zui_topic_tag" lazy="false">
+         <key column="tag_id" />  
+        <many-to-many class="com.makao.zui.entity.ZuiTopic" column="topic_id"/>  
+	</set>
+	<set name="users" table="zui_user_tag" lazy="false">
+         <key column="tag_id" />  
+        <many-to-many class="com.makao.zui.entity.ZuiUser" column="user_id"/>  
+	</set>
+  </class>
+</hibernate-mapping>
+

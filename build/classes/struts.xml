@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>	
+	 <constant name="struts.i18n.encoding" value="UTF-8"/>
+	 		<!-- 指定默认编码集 ，作用于HttpServletRequest的setCharacterEncoding（）和freemarker，vilocity的输出 -->
+	<constant name="struts.configuration.xmlreload" value="true"/>
+			<!-- 当struts配置文件修改时是否自动加载 -->
+	<constant name="struts.devMode" value="true"/>
+			<!-- 开发模式下打印详细的错误信息 -->
+	<constant name="struts.ui.theme" value="xhtml"/>
+	
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="success" type="redirectAction">user_queryAllUser.action</result>
+			<result name="input">/index.jsp</result>
+			<result name="userList">/userList.jsp</result>
+			<result name="addUser">/userAdd.jsp</result>
+			<result name="updateUser">/userUpdate.jsp</result>
+		</action>
+	</package>
+	
+	<package name="solr" namespace="/solr" extends="struts-default">
+		<action name="solr_*" class="solrAction" method="{1}">
+			<result name="input">/index.jsp</result>
+			
+			<result name="queryUserUI">/queryUserUI.jsp</result>
+			<result name="queryUserRes">/queryUserRes.jsp</result>
+			
+			<result name="queryWeiboUI">/queryWeiboUI.jsp</result>
+			<result name="queryWeiboRes">/queryWeiboRes.jsp</result>
+			
+			<result name="queryException">/queryException.jsp</result>
+		</action>
+	</package>
+	
+	<package name="mini" namespace="/mini" extends="struts-default">
+		<action name="mini_*" class="miniAction" method="{1}">
+			<result name="input">/mini.jsp</result>
+			<result name="mini">/mini.jsp</result>
+		</action>
+	</package>
+	
+	<package name="updateStatus" extends="struts-default">
+    	<action name="updateStatus" class="com.makao.action.UpdateAction" method="updateStatus">
+        	<result name="success">/weibolist.jsp</result>
+    	</action>
+	</package>
+	
+	<package name="index" extends="struts-default">
+    	<action name="index" class="com.makao.zui.IndexAction" method="index">
+        	<result name="index">/zui/index.jsp</result>
+    	</action>
+    	<action name="login" class="com.makao.zui.IndexAction" method="login">
+    	</action>
+    	<action name="login2" class="com.makao.zui.IndexAction" method="login2">
+    	    <result name="login">/zui/login.jsp</result>
+    	</action>
+    	<action name="checkLogin" class="com.makao.zui.IndexAction" method="checkLogin">
+    	    <result name="index">/zui/index.jsp</result>
+    	</action>
+	</package>
+	<package name="users" extends="struts-default">
+    	<action name="users" class="com.makao.zui.UsersAction2" method="users">
+        	<result name="users">/zui/users.jsp</result>
+    	</action>
+    	<action name="profile" class="com.makao.zui.UsersAction2" method="profile">
+        	<result name="profile">/zui/profile.jsp</result>
+    	</action>
+    	<action name="me" class="com.makao.zui.UsersAction2" method="me">
+        	<result name="me">/zui/profile.jsp</result>
+    	</action>
+	</package>
+	<package name="publish" extends="struts-default">
+    	<action name="publish" class="com.makao.zui.PublishAction" method="publish">
+        	<result name="publish">/zui/publish.jsp</result>
+    	</action>
+	</package>
+</struts>    

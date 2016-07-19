@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    <!--这块等于dao接口的实现  namespace必须和接口的类路径一样-->  
+<mapper namespace="com.makao.model.Weibo">  
+    <select id="countAll" resultType="int">
+        select count(*) c from t_solr;
+    </select>
+    
+    <select id="selectAll" resultType="Weibo">
+        select * from t_solr order by id asc
+    </select>
+
+    <insert id="insert" parameterType="Weibo">
+        insert into t_solr(id,text,pic_urls,original_pic,reposts_count,comments_count,isretweet,screen_name,profile_image_url,
+        profile_url,retweet_id,retweet_text,retweet_picurls,retweet_originalpic,retweet_repostscount,retweet_commentscount,
+        retweet_screenname,retweet_profileimageurl,retweet_profileurl) values(#{id},#{text},#{pic_urls},#{original_pic},
+        #{reposts_count},#{comments_count},#{isretweet},#{screen_name},#{profile_image_url},#{profile_url},#{retweet_id},
+        #{retweet_text},#{retweet_picurls},#{retweet_originalpic},#{retweet_repostscount},#{retweet_commentscount},
+        #{retweet_screenname},#{retweet_profileimageurl},#{retweet_profileurl})
+    </insert>
+    
+    <update id="update" parameterType="Weibo">
+        update t_solr set id=#{id},text=#{text},source=#{source},created_at=#{created_at},pic_urls=#{pic_urls},original_pic=#{original_pic},reposts_count=#{reposts_count},comments_count=#{comments_count},
+        attitudes_count=#{attitudes_count},reposts_count_real=#{reposts_count_real},user_id=#{user_id},screen_name=#{screen_name},isretweet=#{isretweet},retweet_id=#{retweet_id},retweet_screenname=#{retweet_screenname} where id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="String">
+        delete from t_solr where id=#{id}
+    </delete>
+    
+    <select id="findByWeiboId" parameterType="String" resultType="Weibo">
+        select * from t_solr where id=#{id}
+    </select>
+
+</mapper>

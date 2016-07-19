@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="zuiuser" name="com.makao.zui.entity.ZuiUser">
+    <id name="id">
+      <generator class="native"/>
+    </id>
+    <property name="name"/>
+    <property name="avatar"/>
+    <set name="tags" table="zui_user_tag" lazy="false"> 
+    	<key column="user_id" />  
+        <many-to-many class="com.makao.zui.entity.ZuiTag" column="tag_id"/>  
+    </set>
+    <set name="topics" lazy="false">
+         <key column="user_id" />  
+        <one-to-many class="com.makao.zui.entity.ZuiTopic" />
+	</set>
+	<set name="follows" table="zui_follower_followee" lazy="false"> 
+    	<key column="follower_id" />  
+        <many-to-many class="com.makao.zui.entity.ZuiUser" column="followee_id"/>  
+    </set>
+    <set name="followers" table="zui_followee_follower" lazy="false"> 
+    	<key column="followee_id" />  
+        <many-to-many class="com.makao.zui.entity.ZuiUser" column="follower_id"/>  
+    </set>
+    
+    <property name="location"/>
+    <property name="job"/>
+    <property name="joinDate" type="java.sql.Date" />
+  </class>
+</hibernate-mapping>
+

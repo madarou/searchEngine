@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>     
+<!DOCTYPE configuration     
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"     
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+    <typeAliases>  
+        <!--给实体类起一个别名 user -->  
+        <typeAlias type="com.makao.model.User" alias="User" />  
+        <typeAlias type="com.makao.model.Weibo" alias="Weibo" /> 
+    </typeAliases>  
+   
+    <mappers>  
+        <!--userMapper.xml装载进来  同等于把“dao”的实现装载进来 -->  
+        <mapper resource="com/makao/mybatis/mappers/userMapper.xml" />  
+        <mapper resource="com/makao/mybatis/mappers/weiboMapper.xml" />
+    </mappers>  
+</configuration>
