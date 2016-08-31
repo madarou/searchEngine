@@ -97,9 +97,10 @@
 			}
 			
 			#bottom {
-				margin-top: 30px;
+				margin-top: 10px;
 				font-size: 13.333333px;
 				color: #a6a6a6;
+				text-align:center;
 			}
 			
 			#registeredtxt {
@@ -170,7 +171,11 @@
 					<div class="inp"><input type="password" placeholder="密码" /></div>
 					<div style="text-align:center"><input type='submit' class="btn btn-info" style="padding: 8px 25px;line-height: 1.25;border-radius: 4px"
 								value='登录' data-loading='稍候...' /></div>
-					<div id="bottom"><span id="registeredtxt">立即注册</span><span id="forgotpassword">忘记密码</span></div>
+					<div id="bottom">
+						<img style="height:35px;width:35px" src="/searchEngine/zui/img/qweibo.png" />
+						<img style="height:35px;width:35px" src="/searchEngine/zui/img/qqq.png" />
+						<img style="height:35px;width:35px" src="/searchEngine/zui/img/qweixin.png" />
+					</div>
 				</form>
 			</div>
 			<div id="registered-content">

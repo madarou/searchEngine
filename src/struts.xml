@@ -75,4 +75,9 @@
         	<result name="publish">/zui/publish.jsp</result>
     	</action>
 	</package>
+	<package name="join" extends="struts-default">
+    	<action name="join" class="com.makao.zui.JoinAction" method="join">
+        	<result name="join">/zui/join.jsp</result>
+    	</action>
+	</package>
 </struts>    

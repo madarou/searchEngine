@@ -30,6 +30,17 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 .rt-bk p{ float:left; font-size:0.24rem;}
 .bk{display: block; margin:0.045rem 0.25rem 0 0; float:left; width: 0.15rem; height: 0.24rem; background: url(/searchEngine/zui/img/rt-bk.png) no-repeat; background-size: 0.15rem 0.24rem;}
 .top-name{ text-align:center; font-size:0.34rem; line-height:0.84rem;}
+
+.example {
+    position: relative;
+    padding: 10px;
+    margin: 0 0 15px;
+    border: 1px solid #ddd;
+    border-style: solid;
+    outline: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
 </style>
 </head>
 <body>
@@ -39,7 +50,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 				<p><span onclick="javascript:history.back(-1);" style="pointer:cursor">返回</span><!-- <input type="button" onclick="javascript:history.back(-1);" value="返回上一页"> --></p>
 			</div>
 			<div class="top-name">
-				<p>话题发布</p>
+				<p>话题讨论</p>
 			</div>
 		</header>
 	<section>
@@ -55,39 +66,90 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 						</div>
 					</div>-->
 					<div class="form-group">
-						<label class="col-md-2 control-label">话题</label>
 						<div class="col-md-10">
-							<textarea name='content' id='content' rows='10'
-								class='form-control'></textarea>
+							${topic}
 						</div>
 					</div>
 					
-					
 					<div class="form-group">
-						<label class="col-md-2 control-label">标签</label>
+						<div class="col-md-10 alert alert-info text-center">
+							<a href="alert-link">34条历史消息...</a>
+						</div>
 						<div class="col-md-10">
-							<input type='text' name='keywords' id='keywords' value=''
-								class='form-control' />
-							<div class="help-block alert alert-warning">
-								<span class="label label-info">旅游</span>
-								<span class="label label-info">互联网</span>
-								<span class="label label-info">游戏</span>
-								<span class="label label-info">创业</span>
-								<span class="label label-info">体育</span>
-								<span class="label label-info">电影</span>
-								<span class="label label-info">美女</span>
+							<div class="example row">
+								<div class="col-xs-2">
+									<a href="###" class="avatar"> <i class="icon-user icon-2x"></i>
+											</a>
+								</div>
+								<div class="help-block alert alert-info col-xs-10">
+									<div class="comment">
+										
+										<div class="content">
+											<div class="pull-right text-muted">2 个小时前</div>
+											<div>
+												<a href="###"><strong>Catouse</strong></a> <span
+													class="text-muted">回复</span> <a href="###">张士超</a>
+											</div>
+											<div class="text">你到底把我家钥匙放哪里了...</div>
+											<div class="actions">
+												<a href="##">回复</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 写评论 -->
+								<div class="reply-form row" id="commentReplyForm">
+									<div class="col-xs-2">
+										<a href="###" class="avatar"><i
+											class="icon-user icon-border icon-2x icon-muted"></i></a>
+									</div>
+									<div class="form col-xs-10">
+										<form role="form">
+											<div class="form-group">
+												<textarea class="form-control new-comment-text" rows="2"
+													placeholder="write a comment..."></textarea>
+											</div>
+											<div class="form-group comment-user" style="display: none">
+												<div class="row">
+													<div class="col-md-3">
+														<span class="pull-right">或者</span> <a href="#">登录</a>
+														&nbsp;<a href="##">注册</a>
+													</div>
+													<div class="col-md-7">
+														<div class="form-group">
+															<input type="text" class="form-control"
+																id="nameInputEmail1" placeholder="Enter your name">
+														</div>
+														<div class="form-group">
+															<input type="email" class="form-control"
+																id="exampleInputEmail1" placeholder="Enter email">
+														</div>
+													</div>
+													<div class="col-md-2">
+														<button type="submit" class="btn btn-block btn-primary">
+															<i class="icon-ok"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<!-- 写评论 -->
 							</div>
 						</div>
-						
+
 					</div>
 
-					<div class="form-group">
+					<!-- <div class="form-group">
+						<input type='text' name='keywords' id='keywords' value=''
+									class='form-control' />
 						<div class="col-md-offset-10 col-md-2 pull-right">
 							<input type='submit' id='submit' class="btn btn-info" style="padding: 8px 25px;line-height: 1.25;border-radius: 4px"
 								value='发布' data-loading='稍候...' /> <input type='hidden'
 								name='type' id='type' value='article' />
 						</div>
-					</div>
+					</div> -->
 				</form>
 			</div>
 		</article>

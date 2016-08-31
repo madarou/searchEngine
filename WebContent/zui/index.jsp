@@ -85,7 +85,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 										<div class="media-place-holder"
 											style="width: 100px; height: 100px; line-height: 100px">100x100</div>
 									</div> -->
-									<div class="text">${topic.content}</div>
+									<div class="text"><a href="/searchEngine/join/join?topic=${topic.content}">${topic.content}</a></div>
 								</div>
 								<div class="item-footer">
 									<c:forEach items="${topic.tags}" var="tag" varStatus="s">

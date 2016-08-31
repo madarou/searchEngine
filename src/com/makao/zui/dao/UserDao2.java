@@ -258,7 +258,12 @@ public class UserDao2 {
 				Tag tg = new Tag(t);
 				tagList.add(tg);
 			}
-
+			if(tagArray.length==0){
+				Tag tg1 = new Tag("星座命理");
+				tagList.add(tg1);
+				Tag tg2 = new Tag("娱乐");
+				tagList.add(tg2);
+			}
 			User w = new User();
 			w.setId(id);
 			w.setName(doc.getFieldValue("screen_name").toString());

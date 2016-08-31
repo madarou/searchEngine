@@ -86,20 +86,22 @@ public class TopicDao {
 
 	public List<Topic> queryTopic(User user) throws SolrServerException,
 			IOException {
-		List<Tag> tags = user.getTags();
-		StringBuilder sb = new StringBuilder();
-//		for (Tag t : tags) {
-//			sb.append(t.getNames() + " ");
-//		}
-		for (Tag t : tags) {
-			String[] tagArray = t.getNames().split(" ");
-			for(String str:tagArray){
-				sb.append("text:"+str+" or ");
-			}
+		String queryString = null;
+		if(user==null){
+			queryString = "text:星座命理 or text:娱乐";
 		}
-//		String query_string = sb.toString();
-//		String queryString = String.format("text:%s", query_string.trim());
-		String queryString = sb.substring(0, sb.length()-4);
+		else{
+			List<Tag> tags = user.getTags();
+			
+			StringBuilder sb = new StringBuilder();
+			for (Tag t : tags) {
+				String[] tagArray = t.getNames().split(" ");
+				for(String str:tagArray){
+					sb.append("text:"+str+" or ");
+				}
+			}
+			queryString = sb.substring(0, sb.length()-4);
+		}
 		System.out.println("queryString:"+queryString);
 		SolrQuery q = new SolrQuery();
 		q.setQuery(queryString);
