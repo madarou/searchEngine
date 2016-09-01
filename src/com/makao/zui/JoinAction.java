@@ -2,6 +2,8 @@ package com.makao.zui;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,6 +25,7 @@ public class JoinAction extends ActionSupport {
 	private static final long serialVersionUID = -8729287438453212063L;
 	private String topic;
 	private User user;
+	private List<User> users;
 
 	public String execute() throws Exception {
 		return null;
@@ -34,6 +37,12 @@ public class JoinAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		user = (User) request.getServletContext().getAttribute(
 				"user");
+		users =	(List<User>) request.getServletContext().getAttribute(
+				"users");
+		if(users!=null&&users.size()>50){
+			users = users.subList(30, 50);
+			Collections.reverse(users);
+		}
 		return "join";
 	}
 
@@ -51,6 +60,14 @@ public class JoinAction extends ActionSupport {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 	
 }

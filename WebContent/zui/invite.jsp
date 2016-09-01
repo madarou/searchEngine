@@ -159,7 +159,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 						<div class="col-md-10">
 							<div id="box" class="example" style="height:200px;overflow-y:scroll;overflow-x: hidden;">
 								<div class="alert alert-info text-center">
-									<a href="alert-link">34条历史消息...</a>
+									<a href="alert-link">0条历史消息...</a>
 								</div>
 								<div class="row">
 									<div class="col-xs-1">
@@ -167,8 +167,8 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 									</div><div class="col-xs-1"></div>
 									<div class="help-block alert alert-info col-xs-8">
 										<div class="comment">
-											
-											<div class="content">
+											<div class="text">我来抛砖引玉吧...</div>
+											<!-- <div class="content">
 												<div class="pull-right text-muted">2 个小时前</div>
 												<div class="commenter">
 													<a href="###"><strong>Catouse</strong></a> <span
@@ -176,10 +176,10 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 												</div>
 												<div class="text">你到底把我家钥匙放哪里了...</div>
 												<div class="actions" style="text-align: right;">
-													<!-- <a href="##">回复</a> -->
+													<a href="##">回复</a>
 													<button class="btn btn-link reply" type="button">回复</button>
 												</div>
-											</div>
+											</div> -->
 										</div>
 									</div>
 								</div>
@@ -219,7 +219,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 			</div>
 		</article>
 	</section>
-	<!-- <footer>
+	<footer>
 		<div class="mune">
 			<a href="/searchEngine/index/index"><img src="/searchEngine/zui/img/1.png"></a>
 			<p>找话题</p>
@@ -236,8 +236,8 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 			<a href="/searchEngine/users/me"><img src="/searchEngine/zui/img/4.png"></a>
 			<p>个人中心</p>
 		</div>
-	</footer> -->
-	<!-- 邀请列表 -->
+	</footer>
+		<!-- 邀请列表 -->
 		<!-- 对话框HTML -->
 		<div class="modal fade" id="myModal">
 		  <div class="modal-dialog">
@@ -296,7 +296,6 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 			var commenter = $(this).parent().parent().children('.commenter').children().children().text();
 			$('#comment').val($('#uname').val()+' 回复 '+commenter+': ');
 		});
-		
 		$('.modal-content').click(function(){
 			var msg = $.zui.messager.show('邀请成功', {time: 1000});
 			msg.show();

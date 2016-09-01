@@ -42,7 +42,15 @@ public class UsersAction2 extends ActionSupport {
 				"user");
 		System.out.println("current user: " + currentUser.getName());
 		try {
-			users = userDao2.queryUser(currentUser);
+			@SuppressWarnings("unchecked")
+			List<User> recommend_users = (List<User>) request.getServletContext().getAttribute(
+					"users");
+			if(recommend_users!=null && recommend_users.size()>0)
+				users = recommend_users;
+			else{
+				users = userDao2.queryUser(currentUser);
+				request.getServletContext().setAttribute("users", users);//将被推荐的存到全局，如果全局有则不重新查
+			}
 		} catch (SolrServerException | IOException e) {
 			e.printStackTrace();
 			return "queryException";

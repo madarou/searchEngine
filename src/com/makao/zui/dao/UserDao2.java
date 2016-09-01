@@ -102,7 +102,8 @@ public class UserDao2 {
 		q.setQuery(queryString);
 		q.setRequestHandler("/browse");
 		q.setStart(0);
-		q.setRows(Integer.MAX_VALUE);
+		//q.setRows(Integer.MAX_VALUE);
+		q.setRows(100);
 
 //		q.setHighlight(true).setHighlightFragsize(180)
 //				.setHighlightSimplePre("<span style=\"color:red\">")// ���ÿ�ͷ

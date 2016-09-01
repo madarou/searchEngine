@@ -45,7 +45,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 	<section>
 		<article>
 			<div class="example">
-				<form class="form-horizontal form-condensed" role="form"
+				<form class="form-horizontal form-condensed" role="form" action="post"
 					method='post'>
 					<!-- <div class="form-group">
 						<label class="col-md-2 control-label">标题</label>
@@ -57,7 +57,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 					<div class="form-group">
 						<label class="col-md-2 control-label">话题</label>
 						<div class="col-md-10">
-							<textarea name='content' id='content' rows='10'
+							<textarea id='content' rows='10' name="topic"
 								class='form-control'></textarea>
 						</div>
 					</div>
@@ -69,13 +69,13 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 							<input type='text' name='keywords' id='keywords' value=''
 								class='form-control' />
 							<div class="help-block alert alert-warning">
-								<span class="label label-info">旅游</span>
-								<span class="label label-info">互联网</span>
-								<span class="label label-info">游戏</span>
-								<span class="label label-info">创业</span>
-								<span class="label label-info">体育</span>
-								<span class="label label-info">电影</span>
-								<span class="label label-info">美女</span>
+								<span class="label label-info tlabel">旅游</span>
+								<span class="label label-info tlabel">互联网</span>
+								<span class="label label-info tlabel">游戏</span>
+								<span class="label label-info tlabel">创业</span>
+								<span class="label label-info tlabel">体育</span>
+								<span class="label label-info tlabel">电影</span>
+								<span class="label label-info tlabel">美女</span>
 							</div>
 						</div>
 						
@@ -131,5 +131,16 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 	<!-- ZUI Javascript组件 -->
 	<script src="/jsp/zui/js/zui.min.js"></script>
 	<script src="/jsp/zui/js/doc.min.js"></script>
+	<script>
+	$(function(){
+		$('.tlabel').click(function(){
+			if($('#keywords').val().trim().length==0){
+				$('#keywords').val($(this).text());
+			}else{
+				$('#keywords').val($('#keywords').val()+','+$(this).text());
+			}
+		});
+	});
+	</script>
 </body>
 </html>

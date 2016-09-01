@@ -107,8 +107,8 @@ public class TopicDao {
 		q.setQuery(queryString);
 		q.setRequestHandler("/browse");
 		q.setStart(0);
-		q.setRows(Integer.MAX_VALUE);
-
+		//q.setRows(Integer.MAX_VALUE);
+		q.setRows(100);
 		// ��������
 		// q.setSort("reposts_count", SolrQuery.ORDER.desc);
 
