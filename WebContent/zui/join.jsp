@@ -72,16 +72,19 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 					</div>
 					
 					<div class="form-group">
-						<div class="col-md-10 alert alert-info text-center">
+						<!-- <div class="col-md-10 alert alert-info text-center">
 							<a href="alert-link">34条历史消息...</a>
-						</div>
+						</div> -->
 						<div class="col-md-10">
 							<div class="example row">
-								<div class="col-xs-2">
-									<a href="###" class="avatar"> <i class="icon-user icon-2x"></i>
-											</a>
+								<div class="alert alert-info text-center">
+									<a href="alert-link">34条历史消息...</a>
 								</div>
-								<div class="help-block alert alert-info col-xs-10">
+								<div class="col-xs-1">
+									<a href="###" class="avatar"> <!-- <i class="icon-user icon-2x"></i> -->
+											</a>
+								</div><div class="col-xs-1"></div>
+								<div class="help-block alert alert-info col-xs-8">
 									<div class="comment">
 										
 										<div class="content">
@@ -98,39 +101,16 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 									</div>
 								</div>
 								<!-- 写评论 -->
-								<div class="reply-form row" id="commentReplyForm">
-									<div class="col-xs-2">
+								<div class="reply-form" id="commentReplyForm">
+									<!-- <div class="col-xs-2">
 										<a href="###" class="avatar"><i
 											class="icon-user icon-border icon-2x icon-muted"></i></a>
-									</div>
-									<div class="form col-xs-10">
+									</div> -->
+									<div class="form">
 										<form role="form">
 											<div class="form-group">
-												<textarea class="form-control new-comment-text" rows="2"
-													placeholder="write a comment..."></textarea>
-											</div>
-											<div class="form-group comment-user" style="display: none">
-												<div class="row">
-													<div class="col-md-3">
-														<span class="pull-right">或者</span> <a href="#">登录</a>
-														&nbsp;<a href="##">注册</a>
-													</div>
-													<div class="col-md-7">
-														<div class="form-group">
-															<input type="text" class="form-control"
-																id="nameInputEmail1" placeholder="Enter your name">
-														</div>
-														<div class="form-group">
-															<input type="email" class="form-control"
-																id="exampleInputEmail1" placeholder="Enter email">
-														</div>
-													</div>
-													<div class="col-md-2">
-														<button type="submit" class="btn btn-block btn-primary">
-															<i class="icon-ok"></i>
-														</button>
-													</div>
-												</div>
+												<textarea class="form-control new-comment-text" rows="2" style="margin: 15px;width: 95%;"
+													placeholder="我想说..."></textarea>
 											</div>
 										</form>
 									</div>
