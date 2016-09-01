@@ -56,8 +56,8 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 	<section>
 		<article>
 			<div class="example">
-				<form class="form-horizontal form-condensed" role="form"
-					method='post'>
+				<!-- <form class="form-horizontal form-condensed" role="form"
+					method='post'> -->
 					<!-- <div class="form-group">
 						<label class="col-md-2 control-label">标题</label>
 						<div class="col-md-10">
@@ -76,49 +76,52 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 							<a href="alert-link">34条历史消息...</a>
 						</div> -->
 						<div class="col-md-10">
-							<div class="example row">
+							<div id="box" class="example">
 								<div class="alert alert-info text-center">
 									<a href="alert-link">34条历史消息...</a>
 								</div>
-								<div class="col-xs-1">
-									<a href="###" class="avatar"> <!-- <i class="icon-user icon-2x"></i> -->
-											</a>
-								</div><div class="col-xs-1"></div>
-								<div class="help-block alert alert-info col-xs-8">
-									<div class="comment">
-										
-										<div class="content">
-											<div class="pull-right text-muted">2 个小时前</div>
-											<div>
-												<a href="###"><strong>Catouse</strong></a> <span
-													class="text-muted">回复</span> <a href="###">张士超</a>
-											</div>
-											<div class="text">你到底把我家钥匙放哪里了...</div>
-											<div class="actions">
-												<a href="##">回复</a>
+								<div class="row">
+									<div class="col-xs-1">
+										<a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="${user.avatar}"></a>
+									</div><div class="col-xs-1"></div>
+									<div class="help-block alert alert-info col-xs-8">
+										<div class="comment">
+											
+											<div class="content">
+												<div class="pull-right text-muted">2 个小时前</div>
+												<div class="commenter">
+													<a href="###"><strong>Catouse</strong></a> <span
+														class="text-muted">回复</span> <a href="###">张士超</a>
+												</div>
+												<div class="text">你到底把我家钥匙放哪里了...</div>
+												<div class="actions" style="text-align: right;">
+													<!-- <a href="##">回复</a> -->
+													<button class="btn btn-link reply" type="button">回复</button>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<!-- 写评论 -->
-								<div class="reply-form" id="commentReplyForm">
+							</div>
+						</div>
+						
+						<!-- 写评论 -->
+								<div class="reply-form col-md-10" id="commentReplyForm">
 									<!-- <div class="col-xs-2">
 										<a href="###" class="avatar"><i
 											class="icon-user icon-border icon-2x icon-muted"></i></a>
 									</div> -->
 									<div class="form">
-										<form role="form">
+										<!-- <form role="form"> -->
 											<div class="form-group">
-												<textarea class="form-control new-comment-text" rows="2" style="margin: 15px;width: 95%;"
+												<textarea id="comment" class="form-control new-comment-text" rows="2" style="width: 96%; margin-left: 10px;"
 													placeholder="我想说..."></textarea>
 											</div>
-										</form>
+											<div class="pull-right" style="margin-top: 5px;"><button class="btn btn-info" id="send"><i class="icon-comment-alt"></i> 发表评论</button></div>
+										<!-- </form> -->
 									</div>
 								</div>
 								<!-- 写评论 -->
-							</div>
-						</div>
-
 					</div>
 
 					<!-- <div class="form-group">
@@ -130,11 +133,11 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 								name='type' id='type' value='article' />
 						</div>
 					</div> -->
-				</form>
+				<!-- </form> -->
 			</div>
 		</article>
 	</section>
-	<footer>
+<!-- 	<footer>
 		<div class="mune">
 			<a href="/searchEngine/index/index"><img src="/searchEngine/zui/img/1.png"></a>
 			<p>找话题</p>
@@ -151,7 +154,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 			<a href="/searchEngine/users/me"><img src="/searchEngine/zui/img/4.png"></a>
 			<p>个人中心</p>
 		</div>
-	</footer>
+	</footer> -->
 	<script>
 		(function(doc, win) {
 			var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange'
@@ -171,7 +174,48 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 	<!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<!-- ZUI Javascript组件 -->
-	<script src="/jsp/zui/js/zui.min.js"></script>
-	<script src="/jsp/zui/js/doc.min.js"></script>
+	<script src="/searchEngine/zui/js/zui.min.js"></script>
+	<script src="/searchEngine/zui/js/doc.min.js"></script>
+	<script>
+	$(function(){
+		$('.reply').click(function(){
+			var commenter = $(this).parent().parent().children('.commenter').children().children().text();
+			$('#comment').val($('#uname').val()+' 回复 '+commenter+': ');
+		})
+	})
+	</script>
+	<!-- 写评论 -->
+	<script>
+	$(function(){
+     $('#send').click(function(){
+    	 var content = $('#comment').val();
+    	 var sender = $('#uname').val();
+    	 var avatar = $('#uavatar').val();
+    	 $('#comment').empty();
+    	 var html = '';
+    	 var regex=/\s{1}回复\s{1}/;
+    	 if(regex.test(content)){
+    	     var comma = content.indexOf(":");
+    	     if(comma==-1){
+    	    	 comma=0;
+    	     }
+    	     var first = content.substring(0,comma+1);
+    	     var second = content.substring(comma+1);
+    	     var p1 = first.split(" 回复 ")[0];
+    	     var p2 = first.split(" 回复 ")[1];
+    	     sender = '<a href="###"><strong>'+p1+'</strong></a> <span class="text-muted">回复</span> <a href="###">'+p2+'</a>';
+    	     html = '<div class="row"><div class="col-xs-1"><a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="'+avatar+'"></a></div><div class="col-xs-1"></div><div class="help-block alert alert-info col-xs-8"><div class="comment"><div class="content"><div class="pull-right text-muted">刚刚</div><div class="commenter">'+sender+'</div><div class="text">'+second+'</div><div class="actions" style="text-align: right;"><button class="btn btn-link reply" type="button">回复</button></div></div></div></div></div>';
+    	 }
+    	 else{
+         	html='<div class="row"><div class="col-xs-1"><a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="'+avatar+'"></a></div><div class="col-xs-1"></div><div class="help-block alert alert-info col-xs-8"><div class="comment"><div class="content"><div class="pull-right text-muted">刚刚</div><div class="commenter"><a href="###"><strong>'+sender+'</strong></a></div><div class="text">'+content+'</div><div class="actions" style="text-align: right;"><button class="btn btn-link reply" type="button">回复</button></div></div></div></div></div>';
+    	 }
+         $('#box').append(html);
+         $('#comment').val("");
+     	});
+	});
+	</script>
+	<!-- 写评论 -->
+	<input type="hidden" value="${user.name}" id="uname"></input>
+	<input type="hidden" value="${user.avatar}" id="uavatar"></input>
 </body>
 </html>
