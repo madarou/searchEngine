@@ -250,21 +250,27 @@ public class UserDao2 {
 		System.out.println("*******Hits: " + res.getNumFound() + "*******");
 		for (SolrDocument doc : res) {
 			String id = doc.getFieldValue("id").toString();
-			if(doc.getFieldValue("tagNames")==null)
-				continue;
-			String tagNames = doc.getFieldValue("tagNames").toString();
 			List<Tag> tagList = new ArrayList<Tag>();
-			String[] tagArray = tagNames.split(",");
-			for(String t:tagArray){
-				Tag tg = new Tag(t);
-				tagList.add(tg);
-			}
-			if(tagArray.length==0){
-				Tag tg1 = new Tag("星座命理");
+			if(doc.getFieldValue("tagNames")==null){
+				Tag tg1 = new Tag("创业");
 				tagList.add(tg1);
-				Tag tg2 = new Tag("娱乐");
+				Tag tg2 = new Tag("创新");
 				tagList.add(tg2);
 			}
+			else{
+				String tagNames = doc.getFieldValue("tagNames").toString();
+				String[] tagArray = tagNames.split(",");
+				for(String t:tagArray){
+					Tag tg = new Tag(t);
+					tagList.add(tg);
+				}
+			}
+//			if(tagArray.length==0){
+//				Tag tg1 = new Tag("星座命理");
+//				tagList.add(tg1);
+//				Tag tg2 = new Tag("娱乐");
+//				tagList.add(tg2);
+//			}
 			User w = new User();
 			w.setId(id);
 			w.setName(doc.getFieldValue("screen_name").toString());

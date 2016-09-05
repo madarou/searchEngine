@@ -134,8 +134,8 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 				<p>话题讨论</p>
 			</div>
 		</header>
-	<section>
-		<article>
+	<!-- <section> -->
+		<!-- <article> -->
 			<div class="example">
 				<!-- <form class="form-horizontal form-condensed" role="form"
 					method='post'> -->
@@ -157,24 +157,88 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 							<a href="alert-link">34条历史消息...</a>
 						</div> -->
 						<div class="col-md-10">
-							<div id="box" class="example" style="height:200px;overflow-y:scroll;overflow-x: hidden;">
+							<div id="box" class="example" style="height:300px;overflow-y:scroll;overflow-x: hidden;">
 								<div class="alert alert-info text-center">
 									<a href="alert-link">34条历史消息...</a>
 								</div>
 								<div class="row">
 									<div class="col-xs-1">
-										<a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="${user.avatar}"></a>
+										<a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="http://tp1.sinaimg.cn/1001538004/50/5676094378/1"></a>
 									</div><div class="col-xs-1"></div>
 									<div class="help-block alert alert-info col-xs-8">
 										<div class="comment">
 											
 											<div class="content">
-												<div class="pull-right text-muted">2 个小时前</div>
+												<div class="pull-right text-muted">20:56:33</div>
 												<div class="commenter">
-													<a href="###"><strong>Catouse</strong></a> <span
-														class="text-muted">回复</span> <a href="###">张士超</a>
+													<a href="###"><strong>0小钒0</strong></a> <span
+														class="text-muted">回复</span> <a href="###">张文超</a>
 												</div>
-												<div class="text">你到底把我家钥匙放哪里了...</div>
+												<div class="text">你单有想法，没有足够的执行力和合适团队也难搞</div>
+												<div class="actions" style="text-align: right;">
+													<!-- <a href="##">回复</a> -->
+													<button class="btn btn-link reply" type="button">回复</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-1">
+										<a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="http://tp4.sinaimg.cn/1001538187/50/5661071915/1"></a>
+									</div><div class="col-xs-1"></div>
+									<div class="help-block alert alert-info col-xs-8">
+										<div class="comment">
+											
+											<div class="content">
+												<div class="pull-right text-muted">20:59:02</div>
+												<div class="commenter">
+													<a href="###"><strong>天道酬勤555</strong></a>
+												</div>
+												<div class="text">创业可能更需要个人去担当和思考，我认为深度思考比勤奋工作更重要.</div>
+												<div class="actions" style="text-align: right;">
+													<!-- <a href="##">回复</a> -->
+													<button class="btn btn-link reply" type="button">回复</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-1">
+										<a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="http://tp1.sinaimg.cn/1001538424/50/5685126082/1"></a>
+									</div><div class="col-xs-1"></div>
+									<div class="help-block alert alert-info col-xs-8">
+										<div class="comment">
+											
+											<div class="content">
+												<div class="pull-right text-muted">21:04:15</div>
+												<div class="commenter">
+													<a href="###"><strong>PDKINGS</strong></a>
+												</div>
+												<div class="text">自己当老板，O(∩_∩)O哈哈~</div>
+												<div class="actions" style="text-align: right;">
+													<!-- <a href="##">回复</a> -->
+													<button class="btn btn-link reply" type="button">回复</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-1">
+										<a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="http://tp1.sinaimg.cn/1001538684/50/5628977912/1"></a>
+									</div><div class="col-xs-1"></div>
+									<div class="help-block alert alert-info col-xs-8">
+										<div class="comment">
+											
+											<div class="content">
+												<div class="pull-right text-muted">21:10:55</div>
+												<div class="commenter">
+													<a href="###"><strong>柳生一剑涛</strong></a> <span
+														class="text-muted">回复</span> <a href="###">天道酬勤555</a>
+												</div>
+												<div class="text">自己给自己打工，想停都停不下来啊😝</div>
 												<div class="actions" style="text-align: right;">
 													<!-- <a href="##">回复</a> -->
 													<button class="btn btn-link reply" type="button">回复</button>
@@ -187,7 +251,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 						</div>
 						
 						<!-- 写评论 -->
-								<div class="reply-form col-md-10" id="commentReplyForm">
+								<div class="reply-form col-md-10" id="commentReplyForm" style="margin-bottom: 80px;">
 									<!-- <div class="col-xs-2">
 										<a href="###" class="avatar"><i
 											class="icon-user icon-border icon-2x icon-muted"></i></a>
@@ -217,9 +281,9 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 					</div> -->
 				<!-- </form> -->
 			</div>
-		</article>
-	</section>
-	<!-- <footer>
+		<!-- </article> -->
+	<!-- </section> -->
+	<footer>
 		<div class="mune">
 			<a href="/searchEngine/index/index"><img src="/searchEngine/zui/img/1.png"></a>
 			<p>找话题</p>
@@ -236,7 +300,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 			<a href="/searchEngine/users/me"><img src="/searchEngine/zui/img/4.png"></a>
 			<p>个人中心</p>
 		</div>
-	</footer> -->
+	</footer>
 	<!-- 邀请列表 -->
 		<!-- 对话框HTML -->
 		<div class="modal fade" id="myModal">
@@ -300,7 +364,9 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 		$('.modal-content').click(function(){
 			var msg = $.zui.messager.show('邀请成功', {time: 1000});
 			msg.show();
-		})
+		});
+		var mai=document.getElementById('box');
+        mai.scrollTop=mai.scrollHeight;
 	})
 	</script>
 	<!-- 写评论 -->
@@ -332,6 +398,8 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
          	html='<div class="row"><div class="col-xs-1"><a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="'+avatar+'"></a></div><div class="col-xs-1"></div><div class="help-block alert alert-info col-xs-8"><div class="comment"><div class="content"><div class="pull-right text-muted">刚刚</div><div class="commenter"><a href="###"><strong>'+sender+'</strong></a></div><div class="text">'+content+'</div><div class="actions" style="text-align: right;"><button class="btn btn-link reply" type="button">回复</button></div></div></div></div></div>';
     	 }
          $('#box').append(html);
+         var mai=document.getElementById('box');
+         mai.scrollTop=mai.scrollHeight;
          $('#comment').val("");
      	});
 	});

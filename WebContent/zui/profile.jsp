@@ -49,7 +49,7 @@
 									<span class="label">${tag.names}</span>
 					</c:forEach>
 				</p>
-				<p class="dsb-id" style="color:black">Rio:${user.description}</p>
+				<p class="dsb-id" style="color:black">人生如梦，梦如人生。${user.description}</p>
 			</div>
 		</div>
 

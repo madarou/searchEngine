@@ -48,8 +48,26 @@ public class IndexAction extends ActionSupport {
 		User currentUser = (User) request.getServletContext().getAttribute(
 				"user");
 		System.out.println("current user: " + currentUser.getName());
+		List<Tag> tagList = currentUser.getTags();
+		Boolean isChuangye = false;
+		for(Tag t: tagList){
+			if("创业".equals(t.getNames())||"创新".equals(t.getNames())){
+				isChuangye = true;
+				break;
+			}
+		}
 		try {
 			topics = topicDao.queryTopic(currentUser);
+			if(isChuangye){
+				Topic w = new Topic();
+				w.setContent("[【思路决定道路】1.打工的:这不太可能吧？创业的:一切皆有可能！2.打工的:没办法，老板逼的；创业的:没办法，自己逼的！3.打工的:算了吧，明天再说；创业的:快回来，今天干完！4.打工的:别别别，出了问题我担当不起；创业的:上上上，如果闯祸我来负责！5..打工的:不行；创业的:我看行!]");
+				List<String> tags = new ArrayList<String>();tags.add("创业");
+				w.setTags(tags);
+				w.setJoinNumber("15");
+				w.setUser("在路上");
+				w.setPubTime("Mon Feb 20 21:00:27");
+				topics.add(0, w);
+			}
 		} catch (SolrServerException | IOException e) {
 			e.printStackTrace();
 			return "queryException";
@@ -132,8 +150,26 @@ public class IndexAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User u = userDao2.queryProfile(username);
 		request.getServletContext().setAttribute("user", u);
+		List<Tag> tagList = u.getTags();
+		Boolean isChuangye = false;
+		for(Tag t: tagList){
+			if("创业".equals(t.getNames())||"创新".equals(t.getNames())){
+				isChuangye = true;
+				break;
+			}
+		}
 		try {
 			topics = topicDao.queryTopic(u);
+			if(isChuangye){
+				Topic w = new Topic();
+				w.setContent("[【思路决定道路】1.打工的:这不太可能吧？创业的:一切皆有可能！2.打工的:没办法，老板逼的；创业的:没办法，自己逼的！3.打工的:算了吧，明天再说；创业的:快回来，今天干完！4.打工的:别别别，出了问题我担当不起；创业的:上上上，如果闯祸我来负责！5..打工的:不行；创业的:我看行!]");
+				List<String> tags = new ArrayList<String>();tags.add("创业");
+				w.setTags(tags);
+				w.setJoinNumber("15");
+				w.setUser("在路上");
+				w.setPubTime("Mon Feb 20 21:00:27");
+				topics.add(0, w);
+			}
 		} catch (SolrServerException | IOException e) {
 			e.printStackTrace();
 			return "queryException";

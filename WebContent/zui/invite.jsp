@@ -157,7 +157,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 							<a href="alert-link">34条历史消息...</a>
 						</div> -->
 						<div class="col-md-10">
-							<div id="box" class="example" style="height:200px;overflow-y:scroll;overflow-x: hidden;">
+							<div id="box" class="example" style="height:300px;overflow-y:scroll;overflow-x: hidden;">
 								<div class="alert alert-info text-center">
 									<a href="alert-link">0条历史消息...</a>
 								</div>
@@ -187,7 +187,7 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
 						</div>
 						
 						<!-- 写评论 -->
-								<div class="reply-form col-md-10" id="commentReplyForm">
+								<div class="reply-form col-md-10" id="commentReplyForm" style="margin-bottom: 80px;">
 									<!-- <div class="col-xs-2">
 										<a href="###" class="avatar"><i
 											class="icon-user icon-border icon-2x icon-muted"></i></a>
@@ -331,6 +331,8 @@ header{ position:relative; width: 7.5rem; height: 0.84rem;  border-bottom:1px so
          	html='<div class="row"><div class="col-xs-1"><a href="###" class="avatar" style="background-color:white"><img class="img-circle" src="'+avatar+'"></a></div><div class="col-xs-1"></div><div class="help-block alert alert-info col-xs-8"><div class="comment"><div class="content"><div class="pull-right text-muted">刚刚</div><div class="commenter"><a href="###"><strong>'+sender+'</strong></a></div><div class="text">'+content+'</div><div class="actions" style="text-align: right;"><button class="btn btn-link reply" type="button">回复</button></div></div></div></div></div>';
     	 }
          $('#box').append(html);
+         var mai=document.getElementById('box');
+         mai.scrollTop=mai.scrollHeight;
          $('#comment').val("");
      	});
 	});
